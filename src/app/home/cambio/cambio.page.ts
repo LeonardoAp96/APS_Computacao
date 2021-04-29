@@ -14,7 +14,7 @@ export class CambioPage {
 
   public moedaEnt: number;
   public tipoMoedaEnt: Moedas;
-  public moedaSaida: string = "10";
+  public moedaSaida: string = '';
   public tipoMoedaSaida: Moedas;
 
   private unidadesMoedas = {

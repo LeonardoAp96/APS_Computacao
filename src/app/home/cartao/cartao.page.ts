@@ -15,11 +15,11 @@ export class CartaoPage{
   public valorSaldo = 0;
   public listCartoes : Cartao[] = [
     {
-      nome: "Credito",
+      nome: "Crédito",
       saldo: 75.0
     },
     {
-      nome: "Debito",
+      nome: "Débito",
       saldo: 500.0
     },
     {
