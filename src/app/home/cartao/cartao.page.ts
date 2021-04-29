@@ -28,13 +28,13 @@ export class CartaoPage{
     },
   ];
   public selectedCartao = -1;
-  public iptValor = 0;
+  public iptValor = NaN;
 
   constructor() { }
 
   public refreshList(){
     this.listCartoes[this.selectedCartao].saldo = this.valorSaldo;
-    this.iptValor = 0;
+    this.iptValor = NaN;
   }
 
   public increment(){
