@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CartaoService } from '../service/cartao.service';
 
 
 interface Cartao{
@@ -30,11 +31,14 @@ export class CartaoPage{
   public selectedCartao = -1;
   public iptValor = NaN;
 
-  constructor() { }
+  constructor(private cartaoService: CartaoService){
+    this.listCartoes = this.cartaoService.cartoes;
+   }
 
   public refreshList(){
     this.listCartoes[this.selectedCartao].saldo = this.valorSaldo;
     this.iptValor = NaN;
+    this.cartaoService.updateListCartoes(this.listCartoes);
   }
 
   public increment(){
@@ -55,8 +59,27 @@ export class CartaoPage{
   public removeCartao(toRemove : Cartao) {
     const index = this.listCartoes.indexOf(toRemove)
     this.listCartoes.splice(index, 1);
+    
   }
+  
   public edit(){}
 
+  public popular(){
+    this.listCartoes = [
+      {
+        nome: "Crédito",
+        saldo: 75.0
+      },
+      {
+        nome: "Débito",
+        saldo: 500.0
+      },
+      {
+        nome: "Nubank",
+        saldo: 80.0
+      },
+    ];
+    this.cartaoService.updateListCartoes(this.listCartoes);
+  }
 
 }
