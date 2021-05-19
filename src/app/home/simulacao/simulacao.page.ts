@@ -65,7 +65,7 @@ export class SimulacaoPage{
       valorTemp = this.newValor * Math.pow((1+s.percentual), (this.newTempo/12));
       text += s.nome + " - " + valorTemp.toFixed(3) + "&emsp;";
     }
-        
+
     return text;
   }
 
@@ -82,5 +82,4 @@ export class SimulacaoPage{
     });
     alert.present();
   }
-
 }

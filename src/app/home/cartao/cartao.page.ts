@@ -56,5 +56,7 @@ export class CartaoPage{
     const index = this.listCartoes.indexOf(toRemove)
     this.listCartoes.splice(index, 1);
   }
+  public edit(){}
+
 
 }
