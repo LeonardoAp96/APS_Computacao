@@ -13,12 +13,21 @@ interface Cartao{
 export class CartaoPage{
 
   public valorSaldo = 0;
-  public listCartoes : Cartao[];
+  public listCartoes : Cartao[] = [
+    {
+      nome : "Nubank",
+      saldo: 70.00
+    },
+    {
+      nome : "Debito",
+      saldo: 70.00
+    },
+  ];
   public selectedCartao = -1;
   public iptValor = 0;
 
   constructor(private cartaoService: StorageService){
-    this.listCartoes = this.cartaoService.cartoes;
+    //this.listCartoes = this.cartaoService.cartoes;
    }
 
   public refreshList(){
