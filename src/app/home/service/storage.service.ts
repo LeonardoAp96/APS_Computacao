@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Storage, StorageConfigToken } from '@ionic/storage-angular';
+import { Storage } from '@ionic/storage-angular';
 
 interface Cartao{
   nome: String;
@@ -10,12 +10,18 @@ interface Cartao{
   providedIn: 'root'
 })
 
-export class CartaoService {
-
+export class StorageService {
+  private _storage: Storage | null = null;
   public cartoes: Cartao[] = [];
 
   constructor(private storage: Storage) {
+    this.init();
     this.loadStorageCartao();
+  }
+
+  async init() {
+    const storage = await this.storage.create();
+    this._storage = storage;
   }
 
   public updateListCartoes(listCartoes: Cartao[]){
