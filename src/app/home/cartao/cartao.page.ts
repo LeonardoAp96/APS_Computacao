@@ -1,7 +1,6 @@
 import { StorageService } from './../service/storage.service';
 import { Component } from '@angular/core';
 
-
 interface Cartao{
   nome: String;
   saldo: number;
