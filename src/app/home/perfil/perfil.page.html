@@ -5,5 +5,29 @@
 </ion-header>
 
 <ion-content>
-  <ion-text>Perfil</ion-text>
+  <h1>Perfil</h1>
+
+  <ion-card *ngIf="nomePerfil != null; else cadastro">
+    <ion-avatar>
+      <img
+        src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7742?d=identicon&f=y"
+      />
+    </ion-avatar>
+
+    <ion-label> Olá, Sr. {{nomePerfil}} </ion-label>
+    <ion-button (click)="atualizar()">
+      <ion-icon slot="icon-only" name="refresh"></ion-icon>Atualizar Nome
+    </ion-button>
+  </ion-card>
+  <ng-template #cadastro>
+    <p class="ion-no-margin">Não há Perfil cadastrado</p>
+    <br />
+    <ion-item>
+      <ion-label position="floating">Qual o seu nome? </ion-label>
+      <ion-input [(ngModel)]="newNomePerfil" type="String"></ion-input>
+    </ion-item>
+    <ion-button (click)="cadastrar()">
+      <ion-icon slot="icon-only" name="add"></ion-icon>Cadastrar
+    </ion-button>
+  </ng-template>
 </ion-content>

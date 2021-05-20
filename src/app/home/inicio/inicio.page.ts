@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-
+import { StorageService } from './../service/storage.service';
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.page.html',
   styleUrls: ['./inicio.page.scss'],
 })
-export class InicioPage implements OnInit {
+export class InicioPage{
 
-  constructor() { }
+  public nomePerfil: String;
 
-  ngOnInit() {
+  constructor(private NomeService: StorageService){
+    this.nomePerfil = this.NomeService.nomePerfil;
   }
-
 }

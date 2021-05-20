@@ -1,5 +1,5 @@
+import { StorageService } from './../service/storage.service';
 import { Component } from '@angular/core';
-import { CartaoService } from '../service/cartao.service';
 
 
 interface Cartao{
@@ -14,39 +14,28 @@ interface Cartao{
 export class CartaoPage{
 
   public valorSaldo = 0;
-  public listCartoes : Cartao[] = [
-    {
-      nome: "Crédito",
-      saldo: 75.0
-    },
-    {
-      nome: "Débito",
-      saldo: 500.0
-    },
-    {
-      nome: "Nubank",
-      saldo: 80.0
-    },
-  ];
+  public listCartoes : Cartao[];
   public selectedCartao = -1;
-  public iptValor = NaN;
+  public iptValor = 0;
 
-  constructor(private cartaoService: CartaoService){
+  constructor(private cartaoService: StorageService){
     this.listCartoes = this.cartaoService.cartoes;
    }
 
   public refreshList(){
     this.listCartoes[this.selectedCartao].saldo = this.valorSaldo;
-    this.iptValor = NaN;
+    this.iptValor = 0;
     this.cartaoService.updateListCartoes(this.listCartoes);
   }
 
   public increment(){
-    this.valorSaldo += this.iptValor;
+    if(this.iptValor > 0)
+      this.valorSaldo += this.iptValor;
     this.refreshList();
   }
   public decrement(){
-    this.valorSaldo -= this.iptValor;
+    if(this.iptValor > 0)
+      this.valorSaldo -= this.iptValor;
     this.refreshList();
   }
 
@@ -59,27 +48,13 @@ export class CartaoPage{
   public removeCartao(toRemove : Cartao) {
     const index = this.listCartoes.indexOf(toRemove)
     this.listCartoes.splice(index, 1);
-    
+    this.refreshList();
   }
   
   public edit(){}
 
   public popular(){
-    this.listCartoes = [
-      {
-        nome: "Crédito",
-        saldo: 75.0
-      },
-      {
-        nome: "Débito",
-        saldo: 500.0
-      },
-      {
-        nome: "Nubank",
-        saldo: 80.0
-      },
-    ];
-    this.cartaoService.updateListCartoes(this.listCartoes);
+
   }
 
 }

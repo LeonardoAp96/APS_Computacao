@@ -18,7 +18,7 @@
       <ion-input name="iptValor" [(ngModel)]="iptValor" type="number" placeholder="Digite um valor" [disabled]="selectedCartao == -1">
       </ion-input>
     </ion-col>
-    <ion-button (click)="increment()" [disabled]="iptValor <= 0">
+    <ion-button (click)="increment()" [disabled]="iptValor === NaN || iptValor <= 0">
       <ion-icon slot="icon-only" name="chevron-up-outline"></ion-icon>
     </ion-button>
     <ion-button color="danger" (click)="decrement()" [disabled]="iptValor <= 0">

@@ -5,5 +5,9 @@
 </ion-header>
 
 <ion-content>
-  <ion-text>Olá, usuário perfil</ion-text>
+  <ion-text>Olá, usuário {{nomePerfil}}, para onde você deseja ir?</ion-text>
+  <br>
+  <ion-button expand="full" [routerLink]="['../cartao']">Gerenciar Cartao</ion-button>
+  <ion-button expand="full" [routerLink]="['../cambio']">Cambio</ion-button>
+  <ion-button expand="full" [routerLink]="['../simulacao']">Simulacao</ion-button>
 </ion-content>

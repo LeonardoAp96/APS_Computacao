@@ -11,34 +11,41 @@ interface Cartao{
 })
 
 export class StorageService {
-  private _storage: Storage | null = null;
   public cartoes: Cartao[] = [];
+  public nomePerfil: String;
 
   constructor(private storage: Storage) {
-    this.init();
-    this.loadStorageCartao();
+    this.loadStorage();
   }
 
-  async init() {
-    const storage = await this.storage.create();
-    this._storage = storage;
-  }
+  private async loadStorage(){
+    const loadStorage : Cartao[] = await this.storage.get('cartoes');  
+    if(loadStorage)
+    {
+      this.cartoes.push(...loadStorage);
+    }
 
+    const loadNome: String = await this.storage.get('nomePerfil');  
+    if(loadNome)
+      this.nomePerfil = loadNome;
+  }
+  
   public updateListCartoes(listCartoes: Cartao[]){
     this.cartoes = listCartoes;
     this.saveStorageCartao();
   }  
 
-  private async loadStorageCartao(){
-    const loadStorage : Cartao[] | null = await this.storage.get('cartoes');  
-    if(loadStorage)
-    {
-      this.cartoes.push(...loadStorage);
-    }
-  }
-
   private saveStorageCartao(){
     this.storage.set('cartoes', this.cartoes);
+  }
+  
+  public updateNomePerfil(nomePerfil: String){
+    this.nomePerfil = nomePerfil;
+    this.saveStorageNome();
+  }  
+
+  private saveStorageNome(){
+    this.storage.set('nomePerfil', this.nomePerfil);
   }
 
 }
