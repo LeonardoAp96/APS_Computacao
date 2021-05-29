@@ -9,8 +9,10 @@
 
 <ion-content class="ion-padding">
 
-  <h1>Cambio</h1>
-
+ 
+    <h1>Câmbio</h1>
+  
+  <p>atualizado as {{horarioUpdate}}</p>
   <ion-item>
     <ion-label position="floating">Digite um valor</ion-label>
     <ion-input type="number" [(ngModel)]="moedaEnt" placeholder="Ex.: 300"></ion-input>
@@ -21,8 +23,10 @@
     <ion-col size="5">
       <ion-item>
         <ion-select placeholder="Moeda Entrada" [(ngModel)]="tipoMoedaEnt">
-          <ion-select-option value="Real">Real</ion-select-option>
-          <ion-select-option value="Dolar">Dólar</ion-select-option>
+          <ion-select-option selected value="BRL">Real</ion-select-option>
+          <ion-select-option value="USD">Dólar</ion-select-option>
+          <ion-select-option value="EUR">Euro</ion-select-option>
+          <ion-select-option value="JPY">Yen</ion-select-option>
         </ion-select>
       </ion-item>
     </ion-col>
@@ -37,16 +41,19 @@
 
     <ion-col size="5">
       <ion-item>
-        <ion-select placeholder="Moeda Saida" [(ngModel)]="tipoMoedaSaida">
-          <ion-select-option value="Real">Real</ion-select-option>
-          <ion-select-option value="Dolar">Dólar</ion-select-option>
+        <ion-select placeholder="Moeda Saida" [(ngModel)]="tipoMoedaSaida" (ion-change)="valorMinimo()">
+          <ion-select-option value="BRL">Real</ion-select-option>
+          <ion-select-option value="USD">Dólar</ion-select-option>
+          <ion-select-option value="EUR">Euro</ion-select-option>
+          <ion-select-option value="JPY">Yen</ion-select-option>
         </ion-select>
       </ion-item>
     </ion-col>
 
   </ion-row>
 
-  <h2>{{moedaSaida}}</h2>
+  <h2>Resultado: R{{moedaSaida | currency}} </h2>
+  <p>Valor de $1 {{tipoMoedaEnt}} equivale a {{ moedaMinima | currency}} em {{tipoMoedaSaida}}<p>
       
 
 </ion-content>
