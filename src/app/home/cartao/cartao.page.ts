@@ -26,9 +26,12 @@ export class CartaoPage{
   public selectedCartao = -1;
   public iptValor = 0;
 
-  constructor(private cartaoService: StorageService){
-    //this.listCartoes = this.cartaoService.cartoes;
-   }
+  constructor(private cartaoService: StorageService){}
+
+  ionViewWillEnter(){
+    this.cartaoService.getStorageSimulacao();
+    this.listCartoes = this.cartaoService.cartoes;
+  }
 
   public refreshList(){
     this.listCartoes[this.selectedCartao].saldo = this.valorSaldo;
@@ -58,11 +61,4 @@ export class CartaoPage{
     this.listCartoes.splice(index, 1);
     this.refreshList();
   }
-  
-  public edit(){}
-
-  public popular(){
-
-  }
-
 }

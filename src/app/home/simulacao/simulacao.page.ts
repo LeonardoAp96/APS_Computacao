@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {AlertController} from '@ionic/angular';
+import { StorageService } from './../service/storage.service';
 
 interface Simulacao{
   nome: String;
@@ -28,33 +29,21 @@ export class SimulacaoPage{
 
   public newValor = 0.0;
   public newTempo = 0.0;
-  public newInvestName = "";
-  public newPercentYear = 0.0;
 
-  constructor(
-    private alertController: AlertController
-  ) {  }
+  constructor(private SimulacaoService: StorageService, 
+              private alertController: AlertController) 
+  {
+  }
 
-  public addNewSimulacao(){
-    if (this.newInvestName.trim().length == 0) {
-      return;
-    }
-    if (this.newPercentYear <= 0) {
-      return;
-    }
-
-    this.simulacoes.push({
-      nome: this.newInvestName.trim(),
-      percentual: this.newPercentYear
-    })
-
-    this.newInvestName = '';
-    this.newPercentYear = 0.0;
+  ionViewWillEnter(){
+    this.SimulacaoService.getStorageSimulacao();
+    this.simulacoes = this.SimulacaoService.simulacoes;
   }
 
   public removeSimulacao(toRemove: Simulacao) {
     const index = this.simulacoes.indexOf(toRemove)
     this.simulacoes.splice(index, 1);
+    this.SimulacaoService.updateSimulacao(this.simulacoes);
   }
 
   public calculateSimulacao(){

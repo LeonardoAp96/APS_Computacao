@@ -10,6 +10,12 @@ export class InicioPage{
   public nomePerfil: String;
 
   constructor(private NomeService: StorageService){
+
+  }
+
+  ionViewWillEnter(){
+    this.NomeService.getStorageNomePerfil();
     this.nomePerfil = this.NomeService.nomePerfil;
   }
+
 }

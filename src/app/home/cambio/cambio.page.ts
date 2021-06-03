@@ -30,11 +30,13 @@ export class CambioPage {
 
   constructor(private http: HttpClient) {
     this.horarioUpdate = this.getDateHour();
-    this.atualizaMoeda(); 
     this.tipoMoedaEnt = "BRL";
     this.tipoMoedaSaida = "USD";
   }
 
+  ionViewWillEnter(){
+    this.atualizaMoeda();
+  }
 
   public calcCambio() {
     if(this.moedaEnt == null || this.moedaEnt <=0)
@@ -58,6 +60,7 @@ export class CambioPage {
     const result = await this.http.get<CambioResult>(url).toPromise();
     //console.log(result.conversion_rates.BRL);
     this.unidadesMoedas = result.conversion_rates;
+    console.log(this.unidadesMoedas);
   }
 
   private getDateHour(){
