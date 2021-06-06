@@ -52,8 +52,22 @@
           <ion-icon slot="icon-only" name="add"></ion-icon>Adcionar
         </ion-button>
       </ion-row>
+      
     </ion-grid>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>Nomes de investimentos</ion-label>
+        <ion-label>Valores de % ao ano</ion-label>
+      </ion-item>
+      <ion-item *ngFor="let simulacao of simulacoes">
+        <ion-label class="detalhesCard">{{simulacao.nome}}</ion-label>
+        <ion-label class="detalhesCard">{{simulacao.percentual}}</ion-label>
+      </ion-item>
+    </ion-list>
   </ion-card>
+
+ <br />  
 
     <ion-card>
       <ion-grid>
@@ -79,6 +93,16 @@
         </ion-button>
       </ion-row>
     </ion-grid>
+   <ion-list>
+      <ion-item>
+        <ion-label>Nomes de Cartões</ion-label>
+        <ion-label>Saldo</ion-label>
+      </ion-item>
+      <ion-item *ngFor="let cartao of cartoes">
+        <ion-label class="detalhesCard">{{cartao.nome}}</ion-label>
+        <ion-label class="detalhesCard">{{cartao.saldo}}</ion-label>
+      </ion-item>
+    </ion-list>
   </ion-card>
-
+ 
 </ion-content>

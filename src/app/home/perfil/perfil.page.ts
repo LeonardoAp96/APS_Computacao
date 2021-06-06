@@ -22,12 +22,12 @@ export class PerfilPage{
   public nomePerfil: String;
   public newNomePerfil: String;
 
-  public newInvestName = "";
-  public newPercentYear = 0;
+  public newInvestName = '';
+  public newPercentYear;
   public simulacoes : Simulacao[] = [ ];
 
   public newCartaoName = '';
-  public newValueCartao = 0.0;
+  public newValueCartao;
   public cartoes : Cartao[] = [];
 
   constructor(private StorageService: StorageService, private toasterController: ToastController){
@@ -55,9 +55,11 @@ export class PerfilPage{
 
   public addNewSimulacao(){
     if (this.newInvestName.trim().length == 0) {
+      this.toastMessage("Simulacoes, Nome invalido");
       return;
     }
-    if (this.newPercentYear <= 0) {
+    if (this.newPercentYear <= 0 || this.newPercentYear == null) {
+      this.toastMessage("Simulacoes, Percentual invalido");
       return;
     }
 
@@ -67,7 +69,7 @@ export class PerfilPage{
     })
     console.log(this.simulacoes);
     this.StorageService.updateSimulacao(this.simulacoes);
-    this.toastSuccess("Simulacoes");
+    this.toastMessage("Simulacoes realizado");
 
     this.newInvestName = '';
     this.newPercentYear = 0.0;
@@ -75,9 +77,11 @@ export class PerfilPage{
 
   public addNewCartao(){
     if (this.newCartaoName.trim().length == 0) {
+      this.toastMessage("Cartoes, Nome invalido");
       return;
     }
-    if (this.newValueCartao <= 0) {
+    if (this.newValueCartao <= 0 || this.newValueCartao == null) {
+      this.toastMessage("Cartoes, saldo invalido");
       return;
     }
 
@@ -86,18 +90,18 @@ export class PerfilPage{
       saldo: this.newValueCartao
     })
     this.StorageService.updateListCartoes(this.cartoes);
-    this.toastSuccess("Cartoes");
+    this.toastMessage("Cartoes realizado");
     
     this.newCartaoName = '';
     this.newValueCartao = 0.0;
   }
 
 
-  async toastSuccess(nomeDado: String) {
+  async toastMessage(nomeDado: String) {
     const toast = await this.toasterController.create({
       color: 'dark',
       duration: 2000,
-      message: 'Cadastro de ' + nomeDado + ' realizado'
+      message: 'Cadastro de ' + nomeDado
     });
 
     await toast.present();
