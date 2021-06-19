@@ -6,12 +6,27 @@
 
 <ion-content>
   <div class="ion-text-center">
-  <ion-text size="large">Olá, usuário {{nomePerfil}}, para onde você deseja ir?</ion-text>
+  <ion-text size="large">Olá {{nomePerfil}}, para onde você deseja ir?</ion-text>
   <br>
 </div>
 
-  <ion-button color="Transparent" size="large" expand="full" [routerLink]="['../cartao']">Gerenciar Cartao</ion-button>
-  <ion-button color="Transparent" size="large" expand="full" [routerLink]="['../cambio']">Cambio</ion-button>
-  <ion-button color="Transparent" size="large" expand="full" [routerLink]="['../simulacao']">Simulacao</ion-button>
-  <ion-button color="Transparent" size="large" expand="full" [routerLink]="['../perfil']">Perfil</ion-button>
+<div class="cartao">
+  <ion-button  size="large"  [routerLink]="['../cartao']">Seus Cartões</ion-button>
+</div>
+
+<div class="cambio">
+  <ion-button  size="large"   [routerLink]="['../cambio']">Câmbio</ion-button>
+</div>
+
+<div class="simulacao">
+  <ion-button  size="large"  [routerLink]="['../simulacao']">Simulação</ion-button>
+</div>
+
+<div class="perfil">
+  <ion-button  size="large"  [routerLink]="['../perfil']">Perfil</ion-button>
+</div>
+ <!--  <ion-button  size="large"  [routerLink]="['../cartao']">Gerenciar Cartao</ion-button>
+  <ion-button  size="large"  [routerLink]="['../cambio']">Cambio</ion-button>
+ <ion-button  size="large" expand="full" [routerLink]="['../simulacao']">Simulacao</ion-button>
+  <ion-button  size="large" expand="full" [routerLink]="['../perfil']">Perfil</ion-button>-->
 </ion-content>

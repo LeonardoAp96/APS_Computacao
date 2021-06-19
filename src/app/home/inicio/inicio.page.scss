@@ -1,4 +1,44 @@
-ion-text, ion-button{
-  background-color: transparent !important;
-  text-shadow: 1px 1px 1px rgb(0,0,0);
+.cartao {
+  position: absolute;
+  --border-radius: 6%;
+  height: 0%;
+  width: 250px;
+
+
+  right: 30px;
+  bottom: 90%;
+}
+.cambio {
+
+  position: absolute;
+   --border-radius: 6%;
+  height: 0%;
+  width: 250px;
+
+
+  right: 30px;
+  bottom: 75%;
+}
+
+.simulacao {
+
+  position: absolute;
+  --border-radius: 6%;
+  height: 0px;
+  width: 250px;
+
+
+  right: 30px;
+  bottom: 60%;
+}
+.perfil {
+
+  position: absolute;
+  --border-radius: 6%;
+  height: 0%;
+  width: 250px;
+
+
+  right: 30px;
+  bottom: 45%;
 }
