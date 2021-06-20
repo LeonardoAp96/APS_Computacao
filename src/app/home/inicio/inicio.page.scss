@@ -1,44 +1,20 @@
-.cartao {
-  position: absolute;
-  --border-radius: 6%;
-  height: 0%;
-  width: 250px;
 
-
-  right: 30px;
-  bottom: 90%;
+.setinha{
+position: absolute;
+  right:0%;
+  top:-10px;
 }
-.cambio {
-
+.icone{
   position: absolute;
-   --border-radius: 6%;
-  height: 0%;
-  width: 250px;
-
-
-  right: 30px;
-  bottom: 75%;
+  left:0%;
+  top:-10px;
 }
 
-.simulacao {
-
-  position: absolute;
-  --border-radius: 6%;
-  height: 0px;
-  width: 250px;
-
-
-  right: 30px;
-  bottom: 60%;
+.sizeBotao{
+  height: auto;
 }
-.perfil {
-
-  position: absolute;
-  --border-radius: 6%;
-  height: 0%;
-  width: 250px;
 
 
-  right: 30px;
-  bottom: 45%;
-}
+
+
+

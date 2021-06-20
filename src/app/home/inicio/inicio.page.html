@@ -5,28 +5,70 @@
 </ion-header>
 
 <ion-content>
-  <div class="ion-text-center">
-  <ion-text size="large">Olá {{nomePerfil}}, para onde você deseja ir?</ion-text>
+  <ion-text size="large">Olá{{nomePerfil}}, para onde você deseja ir?</ion-text>
   <br>
-</div>
-
-<div class="cartao">
-  <ion-button  size="large"  [routerLink]="['../cartao']">Seus Cartões</ion-button>
-</div>
-
-<div class="cambio">
-  <ion-button  size="large"   [routerLink]="['../cambio']">Câmbio</ion-button>
-</div>
-
-<div class="simulacao">
-  <ion-button  size="large"  [routerLink]="['../simulacao']">Simulação</ion-button>
-</div>
-
-<div class="perfil">
-  <ion-button  size="large"  [routerLink]="['../perfil']">Perfil</ion-button>
-</div>
- <!--  <ion-button  size="large"  [routerLink]="['../cartao']">Gerenciar Cartao</ion-button>
-  <ion-button  size="large"  [routerLink]="['../cambio']">Cambio</ion-button>
- <ion-button  size="large" expand="full" [routerLink]="['../simulacao']">Simulacao</ion-button>
-  <ion-button  size="large" expand="full" [routerLink]="['../perfil']">Perfil</ion-button>-->
 </ion-content>
+
+<ion-button class="sizeBotao" [routerLink]="['../cartao']">
+  <ion-col>
+    <ion-icon class="icone" size="large" name="card-outline"></ion-icon>
+  </ion-col>
+  <ion-col class="texto">
+    <h4>Cartões</h4>
+    <p>Gerencie seus cartões</p>
+  </ion-col>
+  <ion-col>
+    <ion-icon class="setinha" size="large" name="caret-forward-outline"></ion-icon>
+  </ion-col>
+</ion-button>
+
+
+
+<ion-button class="sizeBotao" [routerLink]="['../cambio']">
+  <ion-col>
+    <ion-icon class="icone" size="large" name="card-outline"></ion-icon>
+  </ion-col>
+  <ion-col class="texto">
+    <h4>Câmbio</h4>
+    <p>Acesse a conversão de moeda</p>
+  </ion-col>
+
+  <ion-col>
+    <ion-icon class="setinha" size="large" name="caret-forward-outline"></ion-icon>
+  </ion-col>
+</ion-button>
+
+
+<ion-button class="sizeBotao" [routerLink]="['../simulacao']">
+  <ion-col>
+    <ion-icon class="icone" size="large" name="calendar-outline"></ion-icon>
+  </ion-col>
+
+  <ion-col class="texto">
+    <h4>Simulação </h4>
+    <p>Gerencie seus investimentos</p>
+  </ion-col>
+  <ion-col>
+    <ion-icon class="setinha" size="large" name="caret-forward-outline"></ion-icon>
+  </ion-col>
+
+</ion-button>
+
+
+<ion-button class="sizeBotao" [routerLink]="['../perfil']">
+  <ion-col>
+    <ion-icon class="icone" size="large" name="person-circle-outline"></ion-icon>
+  </ion-col>
+  <ion-col class="texto">
+    <h4> Perfil </h4>
+    <p>Customize seus dados</p>
+  </ion-col>
+  <ion-col>
+    <ion-icon class="setinha" size="large" name="caret-forward-outline"></ion-icon>
+  </ion-col>
+</ion-button>
+
+
+
+
+
