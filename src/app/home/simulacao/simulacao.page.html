@@ -1,12 +1,10 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="secondary">
     <ion-title>Simulacao</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <h1>Simulação</h1>
-
+<ion-content color="secondary">
   <br />
   <br />
     <ion-item>
@@ -19,14 +17,14 @@
     <ion-input [(ngModel)]="newTempo" name="newTempo" type="number"></ion-input>
   </ion-item>
 
-  <br />  
-  
+  <br />
+
   <ion-button size="3" [routerLink]="['../perfil']">
     <ion-icon slot="icon-only" name="add" ></ion-icon>Adicionar Investimentos
   </ion-button>
 
   <br/>
-    <ion-row>  
+    <ion-row>
       <ion-col size="5">
         <ion-label>Nome</ion-label>
       </ion-col>
@@ -40,7 +38,7 @@
   <ion-list *ngIf="simulacoes.length > 0; else empty">
 
     <ion-item *ngFor="let simulacao of simulacoes">
-      
+
       <ion-label>{{simulacao.nome}}</ion-label>
       <ion-label>{{simulacao.percentual}}</ion-label>
       <ion-button slot="end" fill="clear" color="danger" (click)="removeSimulacao(simulacao)">

@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="secondary">
     <ion-title>Cambio</ion-title>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
@@ -9,9 +9,9 @@
 
 <ion-content class="ion-padding">
 
- 
+
     <h1>Câmbio</h1>
-  
+
   <p>atualizado as {{horarioUpdate}}</p>
   <ion-item>
     <ion-label position="floating">Digite um valor</ion-label>
@@ -30,7 +30,7 @@
         </ion-select>
       </ion-item>
     </ion-col>
-    
+
     <ion-col>
       <ion-fab>
         <ion-fab-button (click)="calcCambio()">
@@ -54,6 +54,6 @@
 
   <h2>Resultado: {{moedaSaida | currency}} </h2>
   <p>Valor de $1 {{tipoMoedaEnt}} equivale a {{ moedaMinima | currency}} em {{tipoMoedaSaida}}<p>
-      
+
 
 </ion-content>
