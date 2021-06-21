@@ -13,14 +13,14 @@
     <h1>Câmbio</h1>
 
   <p>atualizado as {{horarioUpdate}}</p>
-  <ion-item>
+  <ion-item >
     <ion-label position="floating">Digite um valor</ion-label>
     <ion-input type="number" [(ngModel)]="moedaEnt" placeholder="Ex.: 300"></ion-input>
   </ion-item>
 
   <ion-row class="ion-justify-content-center">
 
-    <ion-col size="5">
+    <ion-col class="entrada" size="5">
       <ion-item>
         <ion-select placeholder="Moeda Entrada" [(ngModel)]="tipoMoedaEnt">
           <ion-select-option selected value="BRL">Real</ion-select-option>
@@ -31,7 +31,7 @@
       </ion-item>
     </ion-col>
 
-    <ion-col>
+    <ion-col class="botao" size="5">
       <ion-fab>
         <ion-fab-button (click)="calcCambio()">
          <ion-icon name="swap-horizontal"></ion-icon>
@@ -39,7 +39,7 @@
       </ion-fab>
     </ion-col>
 
-    <ion-col size="5">
+    <ion-col class="saida" size="5">
       <ion-item>
         <ion-select placeholder="Moeda Saida" [(ngModel)]="tipoMoedaSaida" (ion-change)="valorMinimo()">
           <ion-select-option value="BRL">Real</ion-select-option>
