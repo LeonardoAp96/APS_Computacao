@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 
-type Moedas = 'BRL' | 'USD' | 'EUR' | 'JPY';
+type Moedas = 'BRL' | 'USD' | 'EUR';
 interface CambioResult{
   conversion_rates : {
     USD : null,
@@ -65,7 +65,7 @@ export class CambioPage {
 
   private getDateHour(){
     const DateHour = new Date();
-    return DateHour.getHours() + ":" + DateHour.getMinutes() 
+    return DateHour.getHours() + ":" + DateHour.getMinutes()
             + " , " + DateHour.getDate() + "/" + (DateHour.getMonth()+1)  + "/" + DateHour.getFullYear();
     ;
   }

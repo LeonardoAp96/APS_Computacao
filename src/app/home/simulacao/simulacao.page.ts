@@ -30,8 +30,8 @@ export class SimulacaoPage{
   public newValor = 0.0;
   public newTempo = 0.0;
 
-  constructor(private SimulacaoService: StorageService, 
-              private alertController: AlertController) 
+  constructor(private SimulacaoService: StorageService,
+              private alertController: AlertController)
   {
   }
 
@@ -66,8 +66,10 @@ export class SimulacaoPage{
       return;
 
     const alert = await this.alertController.create({
+      cssClass: 'botao',
       header: 'Resultado da simulação é',
       message: this.calculateSimulacao(),
+      buttons: ['Fechar',]
     });
     alert.present();
   }
