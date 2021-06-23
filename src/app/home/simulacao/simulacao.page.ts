@@ -15,16 +15,7 @@ interface Simulacao{
 export class SimulacaoPage{
 
   public simulacoes : Simulacao[] = [
-  {
-    nome: "IPCA",
-    percentual: 0.1
-  },{
-    nome: "Nubank",
-    percentual: 0.5
-  },{
-    nome: "SELIC",
-    percentual: 0.01
-  },
+
 ];
 
   public newValor = 0.0;
@@ -51,8 +42,8 @@ export class SimulacaoPage{
     let valorTemp = 0;
 
     for(let s of this.simulacoes){
-      valorTemp = this.newValor * Math.pow((1+s.percentual), (this.newTempo/12));
-      text += s.nome + " - " + valorTemp.toFixed(3) + "&emsp;";
+      valorTemp = this.newValor * Math.pow((1+s.percentual), this.newTempo);
+      text += s.nome + " - " + valorTemp.toFixed(2) + "&emsp;<br>";
     }
 
     return text;
@@ -66,7 +57,6 @@ export class SimulacaoPage{
       return;
 
     const alert = await this.alertController.create({
-      cssClass: 'botao',
       header: 'Resultado da simulação é',
       message: this.calculateSimulacao(),
       buttons: ['Fechar',]

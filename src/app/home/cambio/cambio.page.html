@@ -7,12 +7,12 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content  color="secondary" class="ion-padding">
+<ion-content color="secondary" class="ion-padding">
 
 
 
   <p>atualizado as {{horarioUpdate}}</p>
-  <ion-item >
+  <ion-item>
     <ion-label position="floating">Digite um valor</ion-label>
     <ion-input type="number" [(ngModel)]="moedaEnt" placeholder="Ex.: 300"></ion-input>
   </ion-item>
@@ -30,13 +30,7 @@
       </ion-item>
     </ion-col>
 
-    <ion-col class="botao" size="5">
-      <ion-fab>
-        <ion-fab-button (click)="calcCambio()">
-         <ion-icon name="swap-horizontal"></ion-icon>
-        </ion-fab-button>
-      </ion-fab>
-    </ion-col>
+
 
     <ion-col class="saida" size="5">
       <ion-item>
@@ -44,9 +38,16 @@
           <ion-select-option value="BRL">Real</ion-select-option>
           <ion-select-option value="USD">Dólar</ion-select-option>
           <ion-select-option value="EUR">Euro</ion-select-option>
-          <
         </ion-select>
       </ion-item>
+    </ion-col>
+
+    <ion-col>
+      <ion-fab>
+        <ion-fab-button (click)="calcCambio()">
+          <ion-icon name="trending-up-outline"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
     </ion-col>
 
   </ion-row>
