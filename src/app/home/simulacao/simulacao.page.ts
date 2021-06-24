@@ -76,7 +76,7 @@ export class SimulacaoPage{
     this.SimulacaoService.updateSimulacao(this.simulacoes);
   }
 
-  private async UpdateAlertSimulacao(toUpdate: Simulacao){
+  async UpdateAlertSimulacao(toUpdate: Simulacao){
     const alert = await this.alertController.create({
       header: 'Atualização de Simulação',
       inputs: [
