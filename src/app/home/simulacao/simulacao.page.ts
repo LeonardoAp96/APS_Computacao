@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {AlertController} from '@ionic/angular';
+import {AlertController, ToastController} from '@ionic/angular';
 import { StorageService } from './../service/storage.service';
 
 interface Simulacao{
@@ -22,7 +22,7 @@ export class SimulacaoPage{
   public newTempo = 0.0;
 
   constructor(private SimulacaoService: StorageService,
-              private alertController: AlertController)
+              private alertController: AlertController, private toasterController: ToastController)
   {
   }
 
@@ -68,5 +68,57 @@ export class SimulacaoPage{
       buttons: ['Fechar',]
     });
     alert.present();
+  }
+  public updateSimulacao(toUpdate: Simulacao, newNome: String, newPercentual: number) {
+    const index = this.simulacoes.indexOf(toUpdate);
+    this.simulacoes[index].nome = newNome;
+    this.simulacoes[index].percentual = newPercentual;
+    this.SimulacaoService.updateSimulacao(this.simulacoes);
+  }
+
+  private async UpdateAlertSimulacao(toUpdate: Simulacao){
+    const alert = await this.alertController.create({
+      header: 'Atualização de Simulação',
+      inputs: [
+        {
+          name: 'nome',
+          type: 'text',
+          placeholder: 'Anterior: ' + toUpdate.nome,
+        },
+        {
+          name: 'percentual',
+          type: 'number',
+          placeholder: 'Anterior: ' + toUpdate.percentual
+        },
+      ],
+      buttons: [{
+        text: 'Ok',
+        handler: (newDados) => {
+          if(newDados.nome.trim().length == 0){
+            this.toastMessage("com falha, Nome incorreto");
+            return;
+          }
+          if (newDados.percentual <= 0 || newDados.percentual == null) {
+            this.toastMessage("com falha, Percentual incorreto");
+            return;
+          }
+
+          this.updateSimulacao(toUpdate, newDados.nome, newDados.percentual);
+          this.toastMessage("com sucesso, Parabéns");
+        }
+      }]
+    });
+    alert.present();
+  }
+
+  async toastMessage(mensagem: String) {
+    const toast = await this.toasterController.create({
+      color: 'dark',
+      duration: 3500,
+      position: 'top',
+      message: "Atualização " + mensagem
+      });
+
+    await toast.present();
   }
 }

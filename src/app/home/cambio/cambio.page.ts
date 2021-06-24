@@ -77,7 +77,7 @@ export class CambioPage {
       color: 'dark',
       duration: 3500,
       position: 'top',
-      message: "Valor de $1 " + this.tipoMoedaEnt + " equivale a " + this.moedaMinima + " em " + this.tipoMoedaSaida
+      message: "Valor de $1 " + this.tipoMoedaEnt + " equivale a " + this.moedaMinima.toFixed(2) + " em " + this.tipoMoedaSaida
       });
 
     await toast.present();
