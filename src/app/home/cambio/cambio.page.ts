@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 
 type Moedas = 'BRL' | 'USD' | 'EUR';
 interface CambioResult{
@@ -28,7 +29,8 @@ export class CambioPage {
   public horarioUpdate: String;
   private unidadesMoedas = {};
 
-  constructor(private http: HttpClient) {
+
+  constructor(private http: HttpClient, private toasterController: ToastController) {
     this.horarioUpdate = this.getDateHour();
     this.tipoMoedaEnt = "BRL";
     this.tipoMoedaSaida = "USD";
@@ -46,6 +48,7 @@ export class CambioPage {
     const result = token / this.unidadesMoedas[this.tipoMoedaSaida];
     this.moedaSaida = result;
     this.valorMinimo();
+    this.toastMessage('');
   }
 
   public valorMinimo(){
@@ -69,5 +72,14 @@ export class CambioPage {
             + " , " + DateHour.getDate() + "/" + (DateHour.getMonth()+1)  + "/" + DateHour.getFullYear();
     ;
   }
+  async toastMessage(nomeDado: String) {
+    const toast = await this.toasterController.create({
+      color: 'dark',
+      duration: 3500,
+      position: 'top',
+      message: "Valor de $1 " + this.tipoMoedaEnt + " equivale a " + this.moedaMinima + " em " + this.tipoMoedaSaida
+      });
 
+    await toast.present();
+  }
 }

@@ -40,13 +40,11 @@ export class SimulacaoPage{
   public calculateSimulacao(){
     let text = '';
     let valorTemp = 0;
-    let pow = 0;
+
 
     for(let s of this.simulacoes){
 
       valorTemp = ((this.newValor * s.percentual)* this.newTempo);
-    // valorTemp=   Math.pow(1,(s.percentualthis.newValor))this.newTempo;
-      //valorTemp = this.newValor * Math.pow((1+s.percentual), this.newTempo);
       text += s.nome + " - " + valorTemp.toFixed(2) + "&emsp;<br>";
 
 

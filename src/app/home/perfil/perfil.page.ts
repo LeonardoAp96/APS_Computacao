@@ -55,11 +55,11 @@ export class PerfilPage{
 
   public addNewSimulacao(){
     if (this.newInvestName.trim().length == 0) {
-      this.toastMessage("Simulacoes, Nome invalido");
+      this.toastMessage("Simulações, Nome inválido");
       return;
     }
     if (this.newPercentYear <= 0 || this.newPercentYear == null) {
-      this.toastMessage("Simulacoes, Percentual invalido");
+      this.toastMessage("Simulações, Percentual inválido");
       return;
     }
 
@@ -77,11 +77,11 @@ export class PerfilPage{
 
   public addNewCartao(){
     if (this.newCartaoName.trim().length == 0) {
-      this.toastMessage("Cartoes, Nome invalido");
+      this.toastMessage("Cartões, Nome invalido");
       return;
     }
     if (this.newValueCartao <= 0 || this.newValueCartao == null) {
-      this.toastMessage("Cartoes, saldo invalido");
+      this.toastMessage("Cartões, saldo inválido");
       return;
     }
 
@@ -90,8 +90,8 @@ export class PerfilPage{
       saldo: this.newValueCartao
     })
     this.StorageService.updateListCartoes(this.cartoes);
-    this.toastMessage("Cartoes realizado");
-    
+    this.toastMessage("Cartões realizado");
+
     this.newCartaoName = '';
     this.newValueCartao = 0.0;
   }
@@ -101,6 +101,7 @@ export class PerfilPage{
     const toast = await this.toasterController.create({
       color: 'dark',
       duration: 2000,
+      position: 'top',
       message: 'Cadastro de ' + nomeDado
     });
 

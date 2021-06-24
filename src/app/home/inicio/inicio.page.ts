@@ -25,7 +25,8 @@ export class InicioPage{
 
   private async CreateAlert(){
     const alert = await this.alertController.create({
-      header: 'Bem-vindo<br>Digite o seu nome',
+      header: 'Bem Vindo ',
+      subHeader: 'Digite o seu nome:',
       inputs: [
         {
           name: 'nome',
